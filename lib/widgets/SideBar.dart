@@ -1,7 +1,7 @@
 import 'package:compsci_ia/functions/PomodoroTimer.dart';
 import 'package:compsci_ia/functions/StudyLog.dart';
 import 'package:compsci_ia/functions/Todolist.dart';
-import 'file:///C:/Users/Takase/Desktop/IA/compsci_ia/lib/screens/login.dart';
+import 'package:compsci_ia/screens/login.dart';
 import 'package:flutter/material.dart';
 
 class SideBar extends StatefulWidget {

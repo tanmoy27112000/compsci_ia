@@ -14,31 +14,32 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
   int timeInSec = timeInMinute * 60;
   Timer timer;
 
-_startTimer(){
-  timeInMinute = 25;
-  int Time = timeInMinute*60;
-  double SecPercent = (Time/100);
-  timer = Timer.periodic(Duration(seconds: 1), (timer) {
-    setState(() {
-      if(Time > 0){
-        Time--;
-        if(Time % 60 ==0){
-          timeInMinute--;
-        }if(Time % SecPercent ==0){
-          if(percent <1){
-            percent += 0.01;
-          }else{
-            percent = 1;
+  _startTimer() {
+    timeInMinute = 25;
+    int Time = timeInMinute * 60;
+    double SecPercent = (Time / 100);
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (Time > 0) {
+          Time--;
+          if (Time % 60 == 0) {
+            timeInMinute--;
           }
+          if (Time % SecPercent == 0) {
+            if (percent < 1) {
+              percent += 0.01;
+            } else {
+              percent = 1;
+            }
+          }
+        } else {
+          percent = 0;
+          timeInMinute = 25;
+          timer.cancel();
         }
-      }else{
-        percent = 0;
-        timeInMinute = 25;
-        timer.cancel();
-      }
+      });
     });
-    });
-}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +47,15 @@ _startTimer(){
       child: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Color(0xff1542bf), Color(0xff51a8ff),],
-                begin: FractionalOffset(0.5,1)
-            ),
+            //   gradient: LinearGradient(
+            //     List: [
+            //       Color(0xff1542bf),
+            //       Color(0xff51a8ff),
+            //     ],
+            //     begin: FractionalOffset(0.5, 1),
+            //   ),
+            // ),
+            color: Colors.blue,
           ),
           width: double.infinity,
           child: Column(
@@ -57,7 +63,9 @@ _startTimer(){
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(top: 25.0, ),
+                padding: EdgeInsets.only(
+                  top: 25.0,
+                ),
                 child: Text(
                   'Pomodoro Timer',
                   style: TextStyle(
@@ -69,7 +77,6 @@ _startTimer(){
               Expanded(
                 child: CircularPercentIndicator(
                   circularStrokeCap: CircularStrokeCap.round,
-
                   percent: percent,
                   animation: true,
                   animateFromLastPercent: true,
@@ -78,23 +85,24 @@ _startTimer(){
                   progressColor: Colors.white,
                   center: Text(
                     '$timeInMinute',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 80.0
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 80.0),
                   ),
                 ),
               ),
-              SizedBox(height: 30.0,),
+              SizedBox(
+                height: 30.0,
+              ),
               Expanded(
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0))
-                  ),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(30.0),
+                          topLeft: Radius.circular(30.0))),
                   child: Padding(
-                    padding: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
+                    padding:
+                        EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
                     child: Column(
                       children: <Widget>[
                         Expanded(
@@ -103,12 +111,15 @@ _startTimer(){
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
-                                    Text('Pause Time',
+                                    Text(
+                                      'Pause Time',
                                       style: TextStyle(
                                         fontSize: 30.0,
                                       ),
                                     ),
-                                    SizedBox(height: 10.0,),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
                                     Text(
                                       '25',
                                       style: TextStyle(
@@ -123,12 +134,15 @@ _startTimer(){
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
-                                    Text('Break Time',
+                                    Text(
+                                      'Break Time',
                                       style: TextStyle(
                                         fontSize: 30.0,
                                       ),
                                     ),
-                                    SizedBox(height: 10.0,),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
                                     Text(
                                       '5',
                                       style: TextStyle(
@@ -143,7 +157,9 @@ _startTimer(){
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 28.0,),
+                          padding: EdgeInsets.symmetric(
+                            vertical: 28.0,
+                          ),
                           child: RaisedButton(
                             onPressed: _startTimer,
                             color: Colors.blue,
@@ -152,7 +168,8 @@ _startTimer(){
                             ),
                             child: Padding(
                               padding: EdgeInsets.all(20.0),
-                              child: Text('Start Studying',
+                              child: Text(
+                                'Start Studying',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 22.0,
