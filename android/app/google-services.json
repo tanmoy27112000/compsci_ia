@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "877476591415",
+    "project_id": "compsci-ia-e352d",
+    "storage_bucket": "compsci-ia-e352d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877476591415:android:c0a834a03b7dae024c0cb2",
+        "android_client_info": {
+          "package_name": "com.takasec.compsci_ia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877476591415-kkbvivmvvsts0k8l0dtp42iib7vrjhfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAda83_Ntcqrq1PoE2DpAFybahMJjL1Jf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877476591415-kkbvivmvvsts0k8l0dtp42iib7vrjhfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
